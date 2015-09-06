@@ -1,0 +1,26 @@
+/* CS261- Assignment 2 */
+/* amortizedAnalysis.txt */
+/* Name: Larissa Hahn
+ * Date: 04-19-15
+ * Solution description: written answers for Part 2 of Assignment 2
+ */
+
+1.) How many cost units are spent in the entire process of performing 32 consecutive push operations on an empty array which starts out at capacity 8, assuming that the array will double in capacity each time a new item is
+added to an already full dynamic array? As N (ie. the number of pushes) grows large, under this strategy for resizing, what is the big-oh complexity for a push?
+
+Answer: 56 cost units, Big O(1 +) complexity for a push
+
+=========================================
+
+2.) How many cost units are spent in the entire process of performing 32 consecutive push operations on an empty array which starts out at capacity 8, assuming that the array will grow by a constant 2 spaces each time a new
+item is added to an already full dynamic array? As N (ie. the number of pushes) grows large, under this strategy for resizing, what is the big-oh complexity for a push?
+
+Answer: 260 cost units, Big O(n) complexity for a push
+
+=========================================
+
+3.) Suppose that a dynamic array stack doubles its capacity when it is full, and shrinks (on Pop only) its capacity by half when the array is half full or less. Can you devise a sequence of N push() and pop() operations which will result in poor performance (O(N^2) total cost)? How might you adjust the array's shrinking policy to avoid this?
+(Hint: You may assume that the initial capacity of the array is N/2.)
+
+Answer: To create poor performance, capacity needs to be reached frequently so then the capacity is forced to double, slowing everything down.  Push() until capacity, (checking to make sure you are at capacity) pop() off the top of the stack so the capacity must shrink by half again (n/2) (which also slows everything down), then push() until capacity where once again the capacity will be forced to double. The best way to fix this issue is simply to change the shrinking policy so that it's much lower than half full. Have it shrink half in size when the capacity reaches 1/8 or 1/4 full.
+
